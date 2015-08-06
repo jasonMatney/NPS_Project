@@ -1,5 +1,5 @@
-BULK INSERT RTCA_new.rtca.APPLICANT_PARTNER
-FROM 'C:\Users\jamatney\Documents\RTCA_Tables\RTCA_APPLICANT_PARTNER.csv'
+BULK INSERT RTCA_new.rtca.US_National_Park_Service
+FROM 'C:\Users\jamatney\RTCA_Tables\view_Applicant_Detail.csv'
 WITH
 (
     FIRSTROW = 2,
