@@ -15,11 +15,13 @@ fcList = arcpy.ListFeatureClasses()
 
 # Print the name of the current fc:
 for fc in fcList:
-    if fc == "RTCA_new.RTCA.CORS_National_Park_Service":
+    if fc == "RTCA_new.RTCA.NPS_CORS_RTCA":
         fieldList = [f.name for f in arcpy.ListFields(fc)]
         for field in fieldList:
             if field == 'RTCA_PrjNu':
                 arcpy.AlterField_management(fc, field, "RTCA_Project_Number")
+            elif field == 'RTCA_Proje':
+                arcpy.AlterField_management(fc, field, "RTCA_Project_Number1")
             elif field == 'PO_NAME':
                 arcpy.AlterField_management(fc, field, "Post_Office_Name")
             elif field == 'ZIPCODE_TY':
@@ -30,8 +32,120 @@ for fc in fcList:
                 arcpy.AlterField_management(fc, field, "Fiscal_Year_Start")
             elif field == 'Fiscal_Y_1':
                 arcpy.AlterField_management(fc, field, "Fiscal_Year_Stop")
-            elif field == 'Project_Sc':
-                arcpy.AlterField_management(fc, field, "Project_Scoping")
+            elif field == 'Project_Lo':
+                arcpy.AlterField_management(fc, field, "Project_Location")
+            elif field == 'NPSContact':
+                arcpy.AlterField_management(fc, field, "NPSContactPointInfo")
+            elif field == 'Anticipate':
+                arcpy.AlterField_management(fc, field, "AnticipateOutcome")
+            elif field == 'PublicInvo':
+                arcpy.AlterField_management(fc, field, "PublicInvolvement")
+            elif field == 'EstProjPay':
+                arcpy.AlterField_management(fc, field, "EstProjPayPeriod")
+            elif field == 'IntendClos':
+                arcpy.AlterField_management(fc, field, "IntendCloseOut")
+            elif field == 'ApprovStat':
+                arcpy.AlterField_management(fc, field, "ApprovStatus")
+            elif field == 'ReadyForRe':
+                arcpy.AlterField_management(fc, field, "ReadyForReview")
+            elif field == 'Project_De':
+                arcpy.AlterField_management(fc, field, "Project_Description")
+            elif field == 'NPS_Projec':
+                arcpy.AlterField_management(fc, field, "NPS_Project_Type")
+            elif field == 'Annual_Sta':
+                arcpy.AlterField_management(fc, field, "Annual_Status")
+            elif field == 'NPS_Unit_N':
+                arcpy.AlterField_management(fc, field, "NPS_Unit_Name")
+            elif field == 'NPS_Unit_C':
+                arcpy.AlterField_management(fc, field, "NPS_Unit_Code")
+            elif field == 'NPS_Office':
+                arcpy.AlterField_management(fc, field, "NPS_Office_Name")
+            elif field == 'Project_Ap':
+                arcpy.AlterField_management(fc, field, "Project_Approver")
+            elif field == 'Milestone_':
+                arcpy.AlterField_management(fc, field, "Milestone_Category")
+            elif field == 'Milestone1':
+                arcpy.AlterField_management(fc, field, "Milestone_Definition")
+            elif field == 'Service_Ca':
+                arcpy.AlterField_management(fc, field, "Strategic_Category")
+            elif field == 'Service_De':
+                arcpy.AlterField_management(fc, field, "Strategic_Description")
+            elif field == 'Financial_':
+                arcpy.AlterField_management(fc, field, "Financial_Unit_Name")
+            elif field == 'National_I':
+                arcpy.AlterField_management(fc, field, "National_Initiative")
+            elif field == 'Public_Pri':
+                arcpy.AlterField_management(fc, field, "Public_Private_Record")
+            elif field == 'Project_Su':
+                arcpy.AlterField_management(fc, field, "Project_Success_Report")
+            elif field == 'Leveraging':
+                arcpy.AlterField_management(fc, field, "Leveraging_Outcome")
+            elif field == 'Leveragi_1':
+                arcpy.AlterField_management(fc, field, "Leveraging_Participants")
+            elif field == 'Leveragi_2':
+                arcpy.AlterField_management(fc, field, "Leveraging_Completion_Date")
+            elif field == 'Leveragi_3':
+                arcpy.AlterField_management(fc, field, "Leveraging_Partner")
+            elif field == 'Leveragi_4':
+                arcpy.AlterField_management(fc, field, "Leveraging_Partner_Match")
+            elif field == 'Leveragi_5':
+                arcpy.AlterField_management(fc, field, "Leveraging_Challenge_Cost_Share")
+            elif field == 'Leveragi_6':
+                arcpy.AlterField_management(fc, field, "Leveraging_National_Initiative")
+            elif field == 'NationalCo':
+                arcpy.AlterField_management(fc, field, "NationalCopID")
+            elif field == 'National_1':
+                arcpy.AlterField_management(fc, field, "NationalCopName")
+            elif field == 'National_2':
+                arcpy.AlterField_management(fc, field, "NationalCopContactPerson")
+            elif field == 'National_3':
+                arcpy.AlterField_management(fc, field, "NationalCopPhone")
+            elif field == 'National_4':
+                arcpy.AlterField_management(fc, field, "NationalCopEmail")
+            elif field == 'National_5':
+                arcpy.AlterField_management(fc, field, "NationalCopAddress")
+            elif field == 'National_6':
+                arcpy.AlterField_management(fc, field, "NationalCopWebsiteList")
+            elif field == 'LocalCopNa':
+                arcpy.AlterField_management(fc, field, "LocalCopName")
+            elif field == 'LocalCopCo':
+                arcpy.AlterField_management(fc, field, "LocalCopContactPerson")
+            elif field == 'LocalCopPh':
+                arcpy.AlterField_management(fc, field, "LocalCopPhone")
+            elif field == 'LocalCopEm':
+                arcpy.AlterField_management(fc, field, "LocalCopEmail")
+            elif field == 'LocalCopAd':
+                arcpy.AlterField_management(fc, field, "LocalCopAddress")
+            elif field == 'LocalCopCi':
+                arcpy.AlterField_management(fc, field, "LocalCopCity")
+            elif field == 'LocalCopSt':
+                arcpy.AlterField_management(fc, field, "LocalCopStateName")
+            elif field == 'LocalCopZi':
+                arcpy.AlterField_management(fc, field, "LocalCopZip")
+            elif field == 'LocalCopWe':
+                arcpy.AlterField_management(fc, field, "LocalCopWebsiteList")
+            elif field == 'RTCAFieldS':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_AccessLevel")
+            elif field == 'RTCAFiel_1':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_OfficeID")
+            elif field == 'RTCAFiel_2':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_Name")
+            elif field == 'RTCAFiel_3':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_Email")
+            elif field == 'RTCAFiel_4':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_MailingAddress")
+            elif field == 'RTCAFiel_5':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_City")
+            elif field == 'RTCAFiel_6':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_State")
+            elif field == 'RTCAFiel_7':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_Zip")
+            elif field == 'RTCAFiel_8':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_Phone")
+            elif field == 'RTCAFiel_9':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_Fax")
+            elif field == 'RTCAFiel_10':
+                arcpy.AlterField_management(fc, field, "RTCAFieldStaff_Cell")
             elif field == 'Annual_Sta':
                 arcpy.AlterField_management(fc, field, "Annual_Status")
             elif field == 'Annual_Yea':
@@ -39,6 +153,8 @@ for fc in fcList:
             elif field == 'Dropped_Ex':
                 arcpy.AlterField_management(fc, field, "Dropped_Explanation")
             elif field == 'ApplicantN':
+                arcpy.AlterField_management(fc, field, "Applicant_NPS_Contact")
+            elif field == 'Project_Le':
                 arcpy.AlterField_management(fc, field, "Applicant_NPS_Contact")
             elif field == 'Project_Co':
                 arcpy.AlterField_management(fc, field, "Applicant_Project_CoLead")
