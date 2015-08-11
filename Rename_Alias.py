@@ -15,6 +15,12 @@ for fc in fcList:  # loop through feature classes
                 arcpy.AlterField_management(fc, field.name, "RTCA_Project_Number1", "RTCA Project Number 1")
             elif field.name == 'Post_Office_Name':
                 arcpy.AlterField_management(fc, field.name, "Post_Office_Name", "Post Office Name")
+            elif field.name == 'STATE':
+                arcpy.AlterField_management(fc, field.name, "State", "State")
+            elif field.name == 'ZIPCODE':
+                arcpy.AlterField_management(fc, field.name, "ZIPCODE", "Zipcode")
+            elif field.name == 'NPS_Role':
+                arcpy.AlterField_management(fc, field.name, "NPS_Role", "NPS Role")
             elif field.name == 'Zipcode_Type':
                 arcpy.AlterField_management(fc, field.name, "Zipcode_Type", "Zipcode Type")
             elif field.name == 'Project_Name':
@@ -147,3 +153,21 @@ for fc in fcList:  # loop through feature classes
                 pass
             print "Name: ", field.name
             print "Alias: ", field.aliasName
+
+#
+#
+#
+# # Print the name of the current fc:
+# for fc in fcList:
+#     if fc == "RTCA_new.RTCA.CORS":
+#         fieldList = arcpy.ListFields(fc)
+#         for field in fieldList:
+#             if field.name.upper() == 'RTCA_PROJECT_NUMBER':
+#                 print "fc was: ", fc
+#                 print "field was: ", field.name
+#                 print "alias was: ", field.aliasName
+#                 arcpy.AlterField_management(in_table=fc, \
+#                 field=field, new_field_name="RTCA_Project_Number", new_field_alias="RTCA Project Number")
+#                 print "fc is now: ", fc
+#                 print "field is now: ", field.name
+#                 print "alias is now: ", field.aliasName
