@@ -153,21 +153,3 @@ for fc in fcList:  # loop through feature classes
                 pass
             print "Name: ", field.name
             print "Alias: ", field.aliasName
-
-#
-#
-#
-# # Print the name of the current fc:
-# for fc in fcList:
-#     if fc == "RTCA_new.RTCA.CORS":
-#         fieldList = arcpy.ListFields(fc)
-#         for field in fieldList:
-#             if field.name.upper() == 'RTCA_PROJECT_NUMBER':
-#                 print "fc was: ", fc
-#                 print "field was: ", field.name
-#                 print "alias was: ", field.aliasName
-#                 arcpy.AlterField_management(in_table=fc, \
-#                 field=field, new_field_name="RTCA_Project_Number", new_field_alias="RTCA Project Number")
-#                 print "fc is now: ", fc
-#                 print "field is now: ", field.name
-#                 print "alias is now: ", field.aliasName
