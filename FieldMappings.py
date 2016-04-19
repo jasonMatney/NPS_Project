@@ -1,6 +1,13 @@
+'''
+Permanently changing the order of Feature Class fields is possible
+in Python using FeatureClasstoFeatureClass with Fieldmappings. 
+You can also rename fields at the same time.
+So if you have a Featureclass with FIELD3,FIELD2,FIELD1 and you want the result to be FIELD1,FIELD2,FIELD3 
+then the following code should accomplish this.
+'''
+
 import arcpy
-# This is possible in python using FeatureClasstoFeatureClass with Fieldmappings. You can also rename fields at the same time.
-#So if you have a Featureclass with FIELD3,FIELD2,FIELD1 and you want the result to be FIELD1,FIELD2,FIELD3 then the following code should accomplish this.
+
 arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\Esri\Desktop10.2\ArcCatalog\rtca user connected to rtca_new database.sde"
 arcpy.env.overwriteOutput = True
 
