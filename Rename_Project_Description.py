@@ -10,7 +10,7 @@ the new FC will naturally also contain the truncated field names.
 To address this issue, this script finds a desired Feature Class and then
 updates each truncated filed name to its full specification. 
 Aliases however, are not updated.
-To update aliases, frist run this script, then run Rename_Alias_Description.py
+To update aliases, frist run this script, then run Alias_Project_Description.py
 '''
 
 import arcpy
