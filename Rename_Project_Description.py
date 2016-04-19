@@ -4,6 +4,8 @@ the field names are conveniently cut off at 13 characters.
 
 Good riddance. Who needed full field names anyways?
 
+The answer is of course, everybody.
+
 When making a new Feautre Class using one of these exported shapefiles as a template,
 the new FC will naturally also contain the truncated field names.
 
