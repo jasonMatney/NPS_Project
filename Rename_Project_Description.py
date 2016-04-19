@@ -6,7 +6,7 @@ arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\Esri\Desktop10.2\ArcCa
 fcList = arcpy.ListFeatureClasses() # get a list of feature classes
 for fc in fcList:  # loop through feature classes
     print fc
-    if fc == "RTCA_new.RTCA.CORS_DESCRIPTION_APRIL":
+    if fc == "RTCA_new.RTCA.CORS_DESCRIPTION":
         print fc
         fieldList = arcpy.ListFields(fc)  # get a list of fields for each feature class
         for field in fieldList: # loop through each field
