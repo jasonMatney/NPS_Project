@@ -1,3 +1,18 @@
+'''
+When ArcMap exports data from Feature Classes to a shapefile,
+the field names are conveniently cut off at 13 characters. 
+
+Good riddance. Who needed full field names anyways?
+
+When making a new Feautre Class using one of these exported shapefiles as a template,
+the new FC will naturally also contain the truncated field names.
+
+To address this issue, this script finds a desired Feature Class and then
+updates each truncated filed name to its full specification. 
+Aliases however, are not updated.
+To update aliases, frist run this script, then run Rename_Alias_Description.py
+'''
+
 import arcpy
 # Set workspace environment to geodatabase
 arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\Esri\Desktop10.2\ArcCatalog\rtca user connected to rtca_new database.sde"
