@@ -108,11 +108,11 @@ for fc in fcList:  # loop through feature classes
             elif field.name == 'Project_We':
                 arcpy.AlterField_management(fc, field.name, "Project_Website", "Project_Website")
             elif field.name == 'Project_Ag':
-                arcpy.AlterField_management(fc, field.name, "Project_Agreement_Attachments", "Project_Agreement_Attachments")
+                arcpy.AlterField_management(fc, field.name, "Project_Agreement_Attachment", "Project_Agreement_Attachment")
             elif field.name == 'Photo_Atta':
-                arcpy.AlterField_management(fc, field.name, "Photo_Attachments", "Photo_Attachments")
+                arcpy.AlterField_management(fc, field.name, "Photo_Attachment", "Photo_Attachment")
             elif field.name == 'Other_Atta':
-                arcpy.AlterField_management(fc, field.name, "Other_Attachments", "Other_Attachments")
+                arcpy.AlterField_management(fc, field.name, "Other_Attachment", "Other_Attachment")
             elif field.name == 'ProjectApp':
                 arcpy.AlterField_management(fc, field.name, "ProjectApplicationAttachment", "ProjectApplicationAttachment")
             elif field.name == 'ProjectWor':
