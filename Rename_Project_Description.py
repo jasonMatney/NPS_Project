@@ -14,53 +14,52 @@ updates each truncated filed name to its full specification.
 Aliases however, are not updated.
 To update aliases, frist run this script, then run Alias_Project_Description.py
 '''
-
 import arcpy
 # Set workspace environment to geodatabase
-arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\Esri\Desktop10.2\ArcCatalog\rtca user connected to rtca_new database.sde"
+arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\ESRI\Desktop10.4\ArcCatalog\Connection to rtca-db.cnr.ncsu.edu.sde"
 
 # Loop through feature classes looking for a field named 'elev'
 fcList = arcpy.ListFeatureClasses() # get a list of feature classes
 for fc in fcList:  # loop through feature classes
     print fc
-    if fc == "RTCA_new.RTCA.CORS_Description":
+    if fc == "RTCA.dbo.RTCA":
         print fc
         fieldList = arcpy.ListFields(fc)  # get a list of fields for each feature class
         for field in fieldList: # loop through each field
-            if field.name == 'Project_Na':
+            if field.name == 'RTCA_Proje':
+                arcpy.AlterField_management(fc, field.name, "RTCA_Project_Number", "RTCA Project Number")
+            elif field.name == 'Project_Na':
                 arcpy.AlterField_management(fc, field.name, "Project_Name", "Project_Name")
             elif field.name == 'NPS_Progra':
                 arcpy.AlterField_management(fc, field.name, "NPS_Program", "NPS_Program")
-            elif field.name == 'Portfolio':
-                arcpy.AlterField_management(fc, field.name, "Portfolio", "Portfolio")
-            elif field.name == 'Portfolio_':
-                arcpy.AlterField_management(fc, field.name, "Portfolio_IfOtherExplain", "Portfolio_IfOtherExplain")
+            elif field.name == 'Strategic_':
+                arcpy.AlterField_management(fc, field.name, "Strategic_Goal", "Strategic_Goal")
+            elif field.name == 'Strategic1':
+                arcpy.AlterField_management(fc, field.name, "Strategic_Goal_IfOtherExplain", "Strategic_Goal_IfOtherExplain")
             elif field.name == 'Anticipate':
                 arcpy.AlterField_management(fc, field.name, "Anticipated_Outcome", "Anticipated_Outcome")
             elif field.name == 'Anticipa_1':
                 arcpy.AlterField_management(fc, field.name, "Anticipated_IfOtherExplain", "Anticipated_IfOtherExplain")
             elif field.name == 'Project_Go':
-                arcpy.AlterField_management(fc, field.name, "Project_Goal", "Project Zipcodes")
-            elif field.name == 'RTCA_Proje':
-                arcpy.AlterField_management(fc, field.name, "RTCA_Project_Number", "RTCA_Project_Number")
-            elif field.name == 'Fiscal_Yea':
-                arcpy.AlterField_management(fc, field.name, "Fiscal_Year_Start", "Fiscal_Year_Start")
-            elif field.name == 'Fiscal_Y_1':
-                arcpy.AlterField_management(fc, field.name, "Fiscal_Year_End", "Fiscal_Year_End")
-            elif field.name == 'Project_St':
-                arcpy.AlterField_management(fc, field.name, "Project_Status", "Project_Status")
-            elif field.name == 'NPS_Region':
-                arcpy.AlterField_management(fc, field.name, "NPS_Regional_Office", "NPS_Regional_Office")
-            elif field.name == 'NPS_Projec':
-                arcpy.AlterField_management(fc, field.name, "NPS_Project_Manager", "NPS_Project_Manager")
-            elif field.name == 'NPS_Proj_1':
-                arcpy.AlterField_management(fc, field.name, "NPS_Project_Manager_Email", "NPS_Project_Manager_Email")
+                arcpy.AlterField_management(fc, field.name, "Project_Goal", "Project Goal")
             elif field.name == 'NPS_Role_C':
                 arcpy.AlterField_management(fc, field.name, "NPS_Role_Category", "NPS_Role_Category")
             elif field.name == 'NPSRoleCat':
                 arcpy.AlterField_management(fc, field.name, "NPSRoleCat_IfOtherExplain", "NPSRoleCat_IfOtherExplain")
             elif field.name == 'NPS_Role_N':
                 arcpy.AlterField_management(fc, field.name, "NPS_Role_Narrative", "NPS_Role_Narrative")
+            elif field.name == 'Project_St':
+                arcpy.AlterField_management(fc, field.name, "Project_Status", "Project_Status")
+            elif field.name == 'Fiscal_Yea':
+                arcpy.AlterField_management(fc, field.name, "Fiscal_Year_Start", "Fiscal_Year_Start")
+            elif field.name == 'Fiscal_Y_1':
+                arcpy.AlterField_management(fc, field.name, "Fiscal_Year_End", "Fiscal_Year_End")
+            elif field.name == 'NPS_Region':
+                arcpy.AlterField_management(fc, field.name, "NPS_Regional_Office", "NPS_Regional_Office")
+            elif field.name == 'NPS_Projec':
+                arcpy.AlterField_management(fc, field.name, "NPS_Project_Manager", "NPS_Project_Manager")
+            elif field.name == 'NPS_Proj_1':
+                arcpy.AlterField_management(fc, field.name, "NPS_Project_Manager_Email", "NPS_Project_Manager_Email")
             elif field.name == 'NPS_Proj_2':
                 arcpy.AlterField_management(fc, field.name, "NPS_Project_Team_Members", "NPS_Project_Team_Members")
             elif field.name == 'Project_Lo':
@@ -107,20 +106,29 @@ for fc in fcList:  # loop through feature classes
                 arcpy.AlterField_management(fc, field.name, "NPS_Unit_Name", "NPS_Unit_Name")
             elif field.name == 'Project_We':
                 arcpy.AlterField_management(fc, field.name, "Project_Website", "Project_Website")
-            elif field.name == 'Project_Ag':
-                arcpy.AlterField_management(fc, field.name, "Project_Agreement_Attachment", "Project_Agreement_Attachment")
-            elif field.name == 'Photo_Atta':
-                arcpy.AlterField_management(fc, field.name, "Photo_Attachment", "Photo_Attachment")
-            elif field.name == 'Other_Atta':
-                arcpy.AlterField_management(fc, field.name, "Other_Attachment", "Other_Attachment")
             elif field.name == 'ProjectApp':
                 arcpy.AlterField_management(fc, field.name, "ProjectApplicationAttachment", "ProjectApplicationAttachment")
+            elif field.name == 'Project_Ag':
+                arcpy.AlterField_management(fc, field.name, "Project_Agreement_Attachment", "Project_Agreement_Attachment")
             elif field.name == 'ProjectWor':
                 arcpy.AlterField_management(fc, field.name, "ProjectWorkPlanAttachment", "ProjectWorkPlanAttachment")
-            elif field.name == 'PhotoCredi':
-                arcpy.AlterField_management(fc, field.name, "PhotoCredit", "PhotoCredit")
+            elif field.name == 'Photo_Atta':
+                arcpy.AlterField_management(fc, field.name, "Photo_Attachment", "Photo_Attachment")
             elif field.name == 'PhotoCapti':
                 arcpy.AlterField_management(fc, field.name, "PhotoCaptionCreditAttachment", "PhotoCaptionCreditAttachment")
+            elif field.name == 'SuccessSto':
+                arcpy.AlterField_management(fc, field.name, "SuccessStory_Attachment", "SuccessStory_Attachment")
+            elif field.name == 'Other_Atta':
+                arcpy.AlterField_management(fc, field.name, "Other_Attachment", "Other_Attachment")
+            elif field.name == 'created_us':
+                arcpy.AlterField_management(fc, field.name, "created_user", "created_user")
+            elif field.name == 'created_da':
+                arcpy.AlterField_management(fc, field.name, "created_date", "created_date")
+            elif field.name == 'last_edite':
+                arcpy.AlterField_management(fc, field.name, "last_edited_user", "last_edited_user")
+            elif field.name == 'last_edi_1':
+                arcpy.AlterField_management(fc, field.name, "last_edited_date", "last_edited_date")
+
 
             else:
                 pass
