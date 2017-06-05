@@ -1,15 +1,19 @@
 import arcpy
 # This is possible in python using FeatureClasstoFeatureClass with Fieldmappings. You can also rename fields at the same time.
 #So if you have a Featureclass with FIELD3,FIELD2,FIELD1 and you want the result to be FIELD1,FIELD2,FIELD3 then the following code should accomplish this.
-arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\Esri\Desktop10.2\ArcCatalog\rtca user connected to rtca_new database.sde"
+arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\ESRI\Desktop10.5\ArcCatalog\Connection to rtca-db.cnr.ncsu.edu.sde"
 arcpy.env.overwriteOutput = True
 
-input_fpath = "RTCA_new.RTCA.CORS_DESCRIPTION_5_25_16"
+input_fpath = "RTCADB.JAMATNEY.Full_Project_Description"
 
 output_dpath = arcpy.env.workspace
-output_fname = "CORS_DESCRIPTION_TEST"
+output_fname = "Full_Project_Description_Mapped"
 
 fms = arcpy.FieldMappings()
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"RTCA_Project_Number")
+fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"Project_Name")
@@ -20,15 +24,23 @@ fm.addInputField(input_fpath,"NPS_Program")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"Portfolio")
+fm.addInputField(input_fpath,"Strategic_Goal")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"Portfolio_IfOtherExplain")
+fm.addInputField(input_fpath,"Secondary_Strategic_Goal")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Strategic_Goal_IfOtherExplain")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"Anticipated_Outcome")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Secondary_Anticipated_Outcome")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
@@ -40,7 +52,23 @@ fm.addInputField(input_fpath,"Project_Goal")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"RTCA_Project_Number")
+fm.addInputField(input_fpath,"NPS_Role_Category")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Secondary_NPS_Role_Category")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"NPSRoleCat_IfOtherExplain")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"NPS_Role_Narrative")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Project_Status")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
@@ -49,10 +77,6 @@ fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"Fiscal_Year_End")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"Project_Status")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
@@ -65,18 +89,6 @@ fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"NPS_Project_Manager_Email")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"NPS_Role_Category")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"NPSRoleCat_IfOtherExplain")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"NPS_Role_Narrative")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
@@ -152,6 +164,10 @@ fm.addInputField(input_fpath,"NationalCopName")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Secondary_National_Cooperator")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"NatCooperatorOrg_IfOtherExplain")
 fms.addFieldMap(fm)
 
@@ -168,19 +184,11 @@ fm.addInputField(input_fpath,"NPS_Unit_Name")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Secondary_NPS_Unit")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"Project_Website")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"Project_Agreement_Attachments")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"Photo_Attachments")
-fms.addFieldMap(fm)
-
-fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"Other_Attachments")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
@@ -188,15 +196,28 @@ fm.addInputField(input_fpath,"ProjectApplicationAttachment")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Project_Agreement_Attachment")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"ProjectWorkPlanAttachment")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
-fm.addInputField(input_fpath,"PhotoCredit")
+fm.addInputField(input_fpath,"Photo_Attachment")
 fms.addFieldMap(fm)
 
 fm = arcpy.FieldMap()
 fm.addInputField(input_fpath,"PhotoCaptionCreditAttachment")
 fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"SuccessStory_Attachment")
+fms.addFieldMap(fm)
+
+fm = arcpy.FieldMap()
+fm.addInputField(input_fpath,"Other_Attachments")
+fms.addFieldMap(fm)
+
 
 arcpy.conversion.FeatureClassToFeatureClass(input_fpath,output_dpath,output_fname,"",fms)
