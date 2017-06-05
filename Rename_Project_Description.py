@@ -1,6 +1,6 @@
 '''
 When ArcMap exports data from Feature Classes to a shapefile,
-the field names are conveniently cut off at 13 characters. 
+the field names are conveniently cut off at 13 characters.
 
 When making a new Feautre Class using one of these exported shapefiles as a template,
 the new FC will naturally also contain the truncated field names.
@@ -10,19 +10,19 @@ Good riddance. Who needed full field names anyways?
 The answer is of course, everybody.
 
 To address this issue, this script finds a desired Feature Class and then
-updates each truncated filed name to its full specification. 
+updates each truncated filed name to its full specification.
 Aliases however, are not updated.
 To update aliases, frist run this script, then run Alias_Project_Description.py
 '''
 import arcpy
 # Set workspace environment to geodatabase
-arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\ESRI\Desktop10.4\ArcCatalog\Connection to rtca-db.cnr.ncsu.edu.sde"
+arcpy.env.workspace = r"C:\Users\jamatney\AppData\Roaming\ESRI\Desktop10.5\ArcCatalog\Connection to rtca-db.cnr.ncsu.edu.sde"
 
 # Loop through feature classes looking for a field named 'elev'
 fcList = arcpy.ListFeatureClasses() # get a list of feature classes
 for fc in fcList:  # loop through feature classes
     print fc
-    if fc == "RTCA.dbo.RTCA":
+    if fc == "RTCADB.JAMATNEY.Full_Project_Description":
         print fc
         fieldList = arcpy.ListFields(fc)  # get a list of fields for each feature class
         for field in fieldList: # loop through each field
